@@ -1,0 +1,16 @@
+FROM php:8.0-cli
+
+# Install the AWS SDK for PHP
+RUN apt-get update && apt-get install -y git
+RUN git clone https://github.com/aws/aws-sdk-php.git /usr/src/aws-sdk-php
+RUN echo "extension=/usr/src/aws-sdk-php/aws.phar" >> /usr/local/etc/php/php.ini
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /workspaces/Terraform_DynamoDB_TABLE/frontend
+COPY . /workspaces/Terraform_DynamoDB_TABLE/frontend
+
+RUN composer install --no-plugins --no-scripts --no-interaction --ignore-platform-reqs
+
+CMD ["php", "index.php"]
