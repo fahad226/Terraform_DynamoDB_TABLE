@@ -1,5 +1,4 @@
 # AWS CLOUD PROJECT 
-### TEAM GITHUB (Azubi Africa Cloud Projects)
 
 ### After six months of intensive training in AWS cloud and front-end development, I was ready to tackle this new project. Focusing on DynamoDB, Docker, and Terraform, I embarked on a journey that would push my boundaries and expand my expertise.
 
